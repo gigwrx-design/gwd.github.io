@@ -2605,3 +2605,20 @@ nav a:hover {
 .switch-wrap p {
   margin: 0;
 }
+
+h1:nth-child(1){
+    left: 0px;
+    position: relative;
+    top: 50px;
+}
+
+p:nth-child(3){
+    position: relative;
+    top: 52px;        
+}
+
+.primary-btn{
+    position: relative;
+    top: 50.5002px;        
+    
+}

@@ -216,20 +216,3 @@ section p {
     margin-top: 10px;
     max-width: 100%;
 }
-
-h1:nth-child(1){
-    left: 0px;
-    position: relative;
-    top: 50px;
-}
-
-p:nth-child(3){
-    position: relative;
-    top: 52px;        
-}
-
-.primary-btn{
-    position: relative;
-    top: 50.5002px;        
-    
-}
