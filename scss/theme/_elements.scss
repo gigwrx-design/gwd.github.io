@@ -1,6 +1,6 @@
 $default: #f9f9ff;
-$primary: #df003a;
-$success: #73d61c;
+$primary: #6cbb23;
+$success: #4cd3e3;
 $info   : #38a4ff;
 $warning: #f4e700;
 $danger: #f44a40;
@@ -259,9 +259,7 @@ h1, h2, h3, h4, h5, h6 {
 	border-left: 2px solid $primary;
 }
 .progress-table-wrap {
-	@include media-breakpoint-down(sm) {
-		overflow-x: scroll;
-	}
+	overflow-x: scroll;
 }
 .progress-table {
 	background: #f9f9ff;
@@ -439,6 +437,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .single-textarea {
 	display: block;
+	color:$black;
 	width: 100%;
 	line-height: 40px;
 	border: none;

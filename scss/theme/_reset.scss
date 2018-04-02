@@ -11,36 +11,34 @@
     color: $white;
 }
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    #777777;
+    color:    $black;
     font-weight: 300;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    #777777;
+   color:    $black;
    opacity:  1;
    font-weight: 300;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    #777777;
+   color:    $black;
    opacity:  1;
    font-weight: 300;
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    #777777;
+   color:    $black;
    font-weight: 300;
 }
 ::-ms-input-placeholder { /* Microsoft Edge */
-   color:    #777777;
+   color:    $black;
    font-weight: 300;
 }
 body {
-    color: $text-color;
+    color:$text-color;
     font-family: $primary-font;
     font-size: 14px;
     font-weight: 300;
     line-height: 1.5em;
     position: relative;
-    // -webkit-font-smoothing: antialiased;
-    // -moz-osx-font-smoothing: grayscale;
 }
 ol, ul {
     margin: 0;

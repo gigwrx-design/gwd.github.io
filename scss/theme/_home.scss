@@ -1,36 +1,43 @@
-
-.dup-body {
-	background: $primary-color;
+body{
+	background:#f6f6fc;
 }
-.dup-body-wrap {
-	box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.2);
-	margin: 50px;
-	position: relative;
-	@include media-breakpoint-down (sm) {
+
+.oz-body-wrap {
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.2);
+    margin: 50px;
+    position: relative;
+    @include media-breakpoint-down (sm) {
 		margin: 30px;
 	}
 	@include media-breakpoint-down (xs) {
 		margin: 10px;
 	}
 }
-.container {
-	@include media-breakpoint-down(lg) {
-		padding: 0 30px;
-	}
-	@include media-breakpoint-down(sm) {
-		padding: 0 15px;
-	}
-}
+
 .section-gap {
-	padding: 120px 0;
+	padding: 100px 0;
+}
+.section-title {
+	padding-bottom: 30px;
+	h2 {
+		margin-bottom: 20px;
+	}
+	p {
+		font-size: 16px;
+		margin-bottom: 0;
+		@include media-breakpoint-down (md) {
+			br {
+				display: none;
+			}
+		}
+	}
 }
 .primary-btn {
-	line-height: 42px;
-	padding-left: 30px;
-	padding-right: 60px;
-	border-radius: 25px;
+	line-height: 40px;
+	padding: 0 30px;
+	border-radius: 20px;
 	background: transparent;
-	border: 1px solid $primary-color;
+	border: 1px solid $white;
 	color: $title-color;
 	display: inline-block;
 	font-weight: 500;
@@ -38,63 +45,70 @@
 	@include transition();
 	cursor: pointer;
 	text-transform: uppercase;
-	position: relative;
 	&:focus {
 		outline: none;
 	}
 	span {
-		color: $title-color;
-		position: absolute;
-		top: 50%;
-		transform: translateY(-60%);
-		right: 30px;
+		color: $white;
+		position: relative;
+		z-index: 2;
+	}
+	.mr-10 {
 		@include transition();
 	}
 	&:hover {
-		background: $primary-color;
-		color: $white;
-		span {
-			color: $white;
-			right: 20px;
+		.mr-10 {
+			margin-right: 20px;
 		}
 	}
-	&.white {
-		border: 1px solid $white;
-		color: $white;
+	&.white-bg {
 		span {
-			color: $white;
-		}
-		&:hover {
-			background: $white;
 			color: $primary-color;
+			@include transition();
+		}
+		background: $white;
+		border: 1px solid #eee;
+		color: $primary-color;
+		&:hover {
+			background: $primary-color;
+			color: $white;
+			border: 1px solid transparent;
 			span {
-				color: $primary-color;
+				color: $white;
 			}
 		}
 	}
+	
 }
+
 
 //--------- Start Banner Area -------------//
 
 .banner-area {
 	background: $white;
+
 	.fullscreen {
 		@include media-breakpoint-down (sm) {
-			height: 800px !important;
+			height: 1000px !important;
 		}
 	}
 }
-.banner-content {
-	@include media-breakpoint-down(sm) {
-		margin-top: 100px;
+
+.banner-left{
+	@include media-breakpoint-down(lg) {
+		margin-top:60px;
 	}
+}
+
+.story-content {
 	h1 {
-		font-size: 42px;
-		font-weight: 600;
-		line-height: 1.15em;
+		font-size: 48px;
+		font-weight: 100;
+		line-height: 1.2em;
 		margin-bottom: 20px;
-		@include media-breakpoint-down(md) {
-			font-size: 36px;
+		margin-top: 20px;
+		@include media-breakpoint-down(sm) {
+			font-size: 40px;
 		}
 		br {
 			@include media-breakpoint-down (md) {
@@ -102,11 +116,11 @@
 			}
 		}
 	}
+	h6{
+		font-weight:400;
+	}
 	p {
 		margin-bottom: 60px;
-		@include media-breakpoint-down(sm) {
-			margin-bottom: 20px;
-		}
 		font-size: 16px;
 		br {
 			@include media-breakpoint-down (md) {
@@ -114,15 +128,23 @@
 			}
 		}
 	}
+	.sp-1{
+		font-weight:600
+	}
+	.sp-2{
+		color:$primary;
+		font-weight:600;
+	}
+
+	@media( max-width:768px ){
+		text-align:center;
+	}
 }
 
 .generic-banner {
-	background: $white;
-	&.element-banner {
-		background: $primary-color;
-	}
+	background: $primary-color;
 	.height {
-		height: 550px;
+		height: 600px;
 		@include media-breakpoint-down (sm) {
 			height: 400px;
 		}
@@ -138,7 +160,6 @@
 			}
 		}
 		p {
-			margin-bottom: 0;
 			font-size: 16px;
 			br {
 				@include media-breakpoint-down (md) {
@@ -150,115 +171,16 @@
 }
 //--------- End Banner Area -------------//
 
-//--------- Start studio Area -------------//
-
-.studio-area {
-	position: relative;
-	background: url(../img/studio-bg.jpg) no-repeat center center/cover;
-	.overlay-bg {
-		background: rgba($primary-color, .8);
-	}
-	.studio-thumb {
-		border-radius: 3px;
-		overflow: hidden;
-		display: inline-block;
-	}
-	.studio-content {
-		@include media-breakpoint-down(xs) {
-			margin-top: 30px;
-		}
-		position: relative;
-		&:after {
-			content: "";
-			position: absolute;
-			right: 100%;
-			top: 0;
-			background: $white;
-			width: 70px;
-			height: 100%;
-			border-radius: 5px 0 0 5px;
-			@include media-breakpoint-down(md) {
-				width: 50px;
-			}
-			@include media-breakpoint-down(xs) {
-				display: none;
-			}
-		}
-		border-radius: 0 5px 5px 0;
-		background: $white;
-		padding: 35px 100px 40px 0;
-		@include media-breakpoint-down(md) {
-			padding: 30px 30px 30px 0;
-		}
-		@include media-breakpoint-down(xs) {
-			padding: 30px;
-			border-radius: 5px;
-		}
-		h2 {
-			line-height: 1.15em;
-			margin-bottom: 10px;
-		}
-	}
-}
-//--------- End Studio Area -------------//
-
-//--------- Start Achivement Area -------------//
-
-.achivement-area {
-	background: $white;
-	.achivement-content {
-		h2 {
-			line-height: 1.15em;
-			margin-bottom: 10px;
-		}
-	}
-	.single-achivement {
-		margin-top: 30px;
-		text-align: center;
-		.achivement-link {
-			display: block;
-			background: #f9fcff;
-			text-align: center;
-			border-radius: 3px;
-			@include transition();
-			i {
-				display: inline-block;
-				padding: 40px 0;
-				font-size: 42px;
-				color: $text-color;
-				@include transition();
-			}
-		}
-		h6 {
-			margin-top: 25px;
-			margin-bottom: 10px;
-			a {
-				color: $title-color;
-				font-weight: 300;
-			}
-		}
-		&:hover {
-			.achivement-link {
-				background: $primary-color;
-				i {
-					color: $white;
-				}
-			}
-		}
-	}
-}
-//--------- End Achivement Area -------------//
-
 //--------- Start video Area -------------//
 
 .video-area {
+	padding: 200px 0 60px 0;
 	position: relative;
-	background: url(../img/video-area-bg.jpg) no-repeat center center/cover;
+	background: url(../img/video-bg.jpg) no-repeat center center/cover;
 	.overlay-bg {
-		background: rgba($primary-color, .8);
+		background: rgba($primary-color, .85);
 	}
 	.video-content {
-		padding: 200px 0;
 		text-align: center;
 		position: relative;
 		z-index: 2;
@@ -266,215 +188,279 @@
 			display: inline-block;
 			margin-bottom: 20px;
 		}
+		h3{
+			font-weight:600;
+			font-size:18px;
+			margin-bottom:10px;
+			letter-spacing: 2px;
+		}
+		h4{
+			font-weight:300;
+			font-size: 14px;
+		}
+		.video-desc{
+			margin-top:120px;
+			text-align:right;
+			align-self: flex-end;
+		}
 	}
 }
 //--------- End video Area -------------//
 
-//--------- Start Skill Area -------------//
 
-.skill-area {
-	background: $white;
-	.skill-content {
+//--------- Start about Area -------------//
+	
+.about-area{
+	position: relative;
+	background:white;
+	.story-content {
 		h2 {
-			margin-bottom: 5px;
+			font-size: 36px;
+			line-height: 1.25em;
+			font-weight:100;
+			span{
+				font-weight:600;
+			}
+		}
+		p{
+			line-height:1.65em;
+			font-size:14px;
+			font-weight:300;
 		}
 	}
 }
-.total-progress-bar {
-	@include media-breakpoint-down(md) {
-		margin-top: 50px;
+
+@media(max-width: 768px){
+	.story-content{
+		margin-top:40px;
+		margin-bottom:40px;
 	}
 }
-.single-progressbar {
-	background: #f9fcff;
-	.progress-bar {
-		background: $primary-color;
-		height: 5px;
-		line-height: 5px;
-	}
-}
-//--------- End Skill Area -------------//
-//--------- Start Carousel Area -------------//
-.carousel-area {
-	position: relative;
-	background: url(../img/carousel-bg.jpg) no-repeat center center/cover;
-	.overlay-bg {
-		background: rgba($primary-color, .8);
-	}
-}
-.active-bottle-carousel {
-	.carousel-thumb {
-		border-radius: 5px;
-		overflow: hidden;
-		img {
-			width: auto;
+
+
+//--------- End about Area -------------//
+
+//--------- Start feature Area -------------//
+	
+	.feature-area{
+		background: url(../img/video-bg.jpg) no-repeat center center/cover;
+		.overlay-bg {
+			background: rgba($primary-color, .85);
 		}
-	}
-	.carousel-content {
-		@include media-breakpoint-down(lg) {
-			padding-right: 30px;
-		}
-		@include media-breakpoint-down(sm) {
-			margin-top: 50px;
-			padding-right: 0;
-		}
-	}
-	position: relative;
-	.owl-controls {
-		position: absolute;
-		top: 50%;
-		right: 50px;
-		@include media-breakpoint-down (lg) {
-			right: 0;
-		}
-		@include media-breakpoint-down (sm) {
-			display: none;
-		}
-		transform: translateY(-50%);
-		.owl-dots {
-			@include flexbox();
-			@include flex-direction(column);
-			@include align-items(end);
-			.owl-dot {
-				width: 30px;
-				height: 3px;
-				background: rgba($white, .3);
-				margin-bottom: 20px;
-				&:last-child {
-					margin-bottom: 0;
-				}
-				&.active {
-					background: rgba($white, 1);
-					width: 50px;
+		.icon{
+			font-size: 100px;
+			color:$white;
+			background: #f0f8e9;     
+			text-align: center;
+			padding: 50px;
+			@include transition();
+			&:hover{
+				color:$white;
+				background-color:$primary-color;
+				.lnr{
+					color:#fff;
 				}
 			}
 		}
+		.lnr{
+			color:$primary-color;
+		}
+		.desc{
+			margin-top:30px;
+			h2{
+				font-size:18px;
+				font-weight:600;
+				margin-bottom:10px;
+				letter-spacing: 2.5px;
+			}
+			p{
+				color:#555;
+			}
+		}
 	}
+
+	.single-feature{
+		background-color:$white;
+		padding:30px;
+		margin-bottom:30px;
+	}
+
+
+//--------- End feature Area -------------//
+
+//--------- Start faq Area -------------//
+
+
+.faq-area{
+	background:$white;
 }
 
-//--------- End Carousel Area -------------//
-
-//--------- Start Carousel Area -------------//
-.contact-area {
-	background: $white;
-	padding: 90px 0 120px 0;
-	.single-address {
-		margin-top: 30px;
-		padding: 0 5px;
-		h6 {
-			margin-bottom: 20px;
-		}
-		p {
-			margin-bottom: 0;
-		}
+.counter-left{
+	text-align:right;
+	h2{	
+		font-size: 48px;
+		font-weight:100;
+		color:$primary-color;
 	}
+	p{
+		font-size:14px;
+		font-weight:300;
+	}
+
+	.single-facts{
+		margin-bottom:26px;
+	}
+
+	@media( max-width:768px ){
+		text-align:center;
+	}
+
 }
 
-//--------- End Carousel Area -------------//
 
-.subscription-area {
-	padding-bottom: 90px;
-}
-.subscription {
-	input {
-		width: 100%;
-		line-height: 50px;
-		padding: 0 180px 0 25px;
-		border: none;
-		background: transparent;
-		font-weight: 300;
-		border-radius: 25px;
-		background: #f9f9ff;
+.faq-content{
+	padding-left:10%;
+	padding-right:10%;
+	
+	@include media-breakpoint-down(lg) {
+		padding-left:2%;
+		padding-right:2%;
 	}
-	.primary-btn {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		right: 5px;
-		background: $primary-color;
-		color: $white;
-		span {
-			color: $white;
-		}
-	}
-	.info {
-		position: absolute;
-		top: 60px;
-		left: 50%;
-		transform: translateX(-50%);
-		color: $white;
-		font-size: 12px;
-		&.valid {
-			color: $white;
-		}
-		&.error {
-			color: $white;
-		}
-	}
+
 	@include media-breakpoint-down(sm) {
-		input {
-			padding: 0 25px;
-		}
-		.primary-btn {
-			top: 120%;
-			transform: translate(50%, 0);
-			right: 50%;
-			width: 220px;
-		}
-		.info {
-			top: 110px;
-		}
+		text-align:center;
 	}
 }
 
-.footer-widget-area {
-	position: relative;
-	background: url(../img/f-bg.jpg) no-repeat center center/cover;
-	.overlay-bg {
-		background: rgba($primary-color, .8);
+.single-faq{
+	margin-bottom:30px;
+	h2{
+		font-size:18px;
+		font-weight:600;
+		letter-spacing:3px;
+		margin-top: 15px;
+		margin-bottom: 25px;
 	}
-	.container {
-		position: relative;
-		z-index: 2;
+	p{
+		font-size:16px;
+		font-weight:300;
+		line-height:24px;
 	}
+}
+
+
+//--------- End faq Area -------------//
+
+
+//--------- Contact Area -------------//
+		
+	.contact-area{
+		background: url(../img/contact-bg.jpg) no-repeat center center/cover;
+		color:$white;
+		.overlay-bg {
+			background: rgba($primary-color, .85);
+		}
+		h2{
+			font-size:36px;
+			font-weight:100;
+			span{
+				font-weight:600;
+			}
+		}
+		p{
+			font-size:14px;
+			font-weight:300;
+		}
+	}
+	.contact-form {
+		::-webkit-input-placeholder {
+			color:    $white;
+			font-weight: 300;
+		}
+		:-moz-placeholder {
+			color:    $white;
+			opacity:  1;
+			font-weight: 300;
+		}
+		::-moz-placeholder {
+			color:    $white;
+			opacity:  1;
+			font-weight: 300;
+		}
+		:-ms-input-placeholder { 
+			color:    $white;
+			font-weight: 300;
+		}
+		::-ms-input-placeholder { 
+			color:    $white;
+			font-weight: 300;
+		}	
+		.alert-msg {
+			color: $white!important;
+			margin-top: 50px;
+			z-index:1;
+		}
+
+	}
+	.common-input {
+		border: 1px solid #a6d477;
+		line-height: 48px;
+		width: 100%;
+		display: block;
+		background: transparent;
+		padding: 0 25px;
+		color: $white;
+	}
+	.common-textarea {
+		border: 1px solid #a6d477;
+		width: 100%;
+		display: block;
+		background: transparent;
+		padding: 15px 25px;
+		color: $white;
+		height: 150px;
+		resize: none;
+	}
+
+//--------- End Contact Area -------------//
+
+//--------- Start footera Area -------------//
+
+footer {
+	background:$white;
 	.footer-nav {
-		margin-top: -7px;
 		li {
 			margin-top: 8px;
 			a {
-				color: rgba($white, .7);
+				color: #777;
 				&:hover {
-					color: rgba($white, 1);
+					color: $primary-color;
 				}
 			}
 		}
 	}
 }
-.instafeed {
-	margin: -5px;
-	li {
-		overflow: hidden;
-		width: 25%;
-		img {
-			margin: 5px;
-		}
-	}
-}
+
+
 .single-footer-widget {
 	margin-bottom: 30px;
+	h6{
+		color:$black;
+	}
+
 }
 .footer-bottom {
+	border-top:1px solid #eeeeee;
 	padding-top: 40px;
 	.footer-text {
-		color: $white;
+		color: #777;
 		i {
-			color: $white;
+			color: $primary-color;
 		}
 		a {
-			text-decoration: underline;
-			color: rgba($white, .7);
+			color: $primary-color;
 			&:hover {
-				color: rgba($white, 1);
+			color: $primary-color;
 			}
 		}
 	}
@@ -484,24 +470,23 @@
 		margin-top: 10px;
 	}
 	a {
-		border: 1px solid rgba($white, .3);
 		width: 30px;
+		background:#f9f9ff;
 		line-height: 30px;
 		display: inline-block;
 		text-align: center;
 		margin-right: 5px;
 		i {
-			color: $white;
+			color: #777;
 			@include transition();
 		}
 		&:last-child {
 			margin-right: 0;
 		}
 		&:hover {
-			background: $white;
-			border: 1px solid rgba($white, 1);
+			background: $primary-color;
 			i {
-				color: $primary-color;
+				color: $white;
 			}
 		}
 	}
@@ -509,21 +494,32 @@
 
 //----------- Start Generic Page -------------//
 
+.generic-header{
+	.menu-bar{
+		span{
+			color:$text-color;
+		}
+	}
+
+	nav{
+		a{
+			color: $black;
+		}
+	}
+}
+
+.generic-banner{
+	background:$white;
+	color:$title-color
+}
+
 .about-generic-area {
-	position: relative;
-	background: url(../img/g-bg.jpg) no-repeat center center/cover;
-	.overlay-bg {
-		background: rgba($primary-color, .8);
-	}
-	.container {
-		position: relative;
-		z-index: 2;
-	}
+	background: $white;
 	.border-top-generic {
 		padding: 100px 15px;
 	}
 	p {
-		margin-bottom: 30px;
+		margin-bottom: 20px;
 	}
 }
 .white-bg {
@@ -540,3 +536,15 @@
 	}
 }
 //----------- End Generic Page -------------//
+
+//----------- Start Elements Page -------------//
+
+
+.elements-banner{
+	color:$black!important;
+}
+
+
+
+//----------- End Elements Page -------------//
+
